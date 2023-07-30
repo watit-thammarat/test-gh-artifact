@@ -47,7 +47,7 @@ jobs:
 
   replace:
     needs: build
-    uses: watit-thammarat/test-gh-artifact/.github/workflows/replace.yml@main
+    uses: watit-thammarat/test-gh-artifact/.github/workflows/replace.yml@a0aa2e15ace4be56ba563b8389a0d82a63030380
 
   # replace:
   #   runs-on: ubuntu-latest
