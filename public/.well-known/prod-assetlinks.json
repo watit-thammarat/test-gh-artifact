@@ -1,0 +1,16 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.nocnoc.app.prod",
+      "sha256_cert_fingerprints": [
+        "14:4B:81:D6:F3:EF:66:00:A0:12:0C:4C:2F:53:5A:31:25:E5:5B:BA:C2:16:64:9A:DD:2A:FF:6E:35:4C:54:02",
+        "F1:67:33:C2:BA:0E:28:86:48:D6:AB:8C:9E:03:C9:2D:37:51:63:EA:37:F3:77:B5:D9:D5:09:91:D6:D8:FE:09",
+        "76:4F:C3:FD:D2:DB:23:2B:88:ED:6E:BB:FA:85:32:A7:1E:0B:A5:29:38:28:C0:47:F6:83:95:53:89:D0:30:BB"
+      ]
+    }
+  }
+]

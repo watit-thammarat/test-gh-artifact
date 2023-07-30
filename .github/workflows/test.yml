@@ -58,4 +58,4 @@ jobs:
         shell: bash
         run: |
           pwd
-          ls -l
+          ls -la

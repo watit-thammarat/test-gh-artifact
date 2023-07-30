@@ -1,0 +1,44 @@
+{
+  "applinks": {
+      "apps": [],
+      "details": [
+          {
+              "appIDs": ["SDSPCHTDK8.com.nocnoc.app.prod"],
+              "components": [
+                  {
+                    "/": "/login/*",
+                    "exclude": true,
+                    "comment": "Matches any URL whose path starts with /login/ and instructs the system not to open it as a universal link"
+                  },
+                  {
+                    "/": "/ck/*",
+                    "exclude": true
+                  },
+                  {
+                    "/": "/oc/*",
+                    "exclude": true
+                  },
+                  {
+                    "/": "/seller/*",
+                    "exclude": true
+                  },
+                  {
+                    "/": "/lks/*",
+                    "exclude": true
+                  },
+                  {
+                    "/": "/cs-u/*",
+                    "exclude": true
+                  },
+                  {
+                    "/": "/installer/*",
+                    "exclude": true
+                  },
+                  {
+                    "/": "/*"
+                  }
+              ]
+          }
+      ]
+  }
+}

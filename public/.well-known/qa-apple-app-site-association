@@ -1,0 +1,53 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appIDs": [
+          "SDSPCHTDK8.com.nocnoc.app.dev",
+          "SDSPCHTDK8.com.nocnoc.app.internal"
+        ],
+        "components": [
+          {
+            "/": "/login/*",
+            "exclude": true,
+            "comment": "Matches any URL whose path starts with /login/ and instructs the system not to open it as a universal link"
+          },
+          {
+            "/": "/ck/*",
+            "exclude": true,
+            "comment": "Matches any URL whose path starts with /check out/ and instructs the system not to open it as a universal link"
+          },
+          {
+            "/": "/oc/*",
+            "exclude": true,
+            "comment": "Matches any URL whose path starts with /order confirmation/ and instructs the system not to open it as a universal link"
+          },
+          {
+            "/": "/seller/*",
+            "exclude": true,
+            "comment": "Matches any URL whose path starts with /seller portal/ and instructs the system not to open it as a universal link"
+          },
+          {
+            "/": "/lks/*",
+            "exclude": true,
+            "comment": "Matches any URL whose path starts with /survey portal/ and instructs the system not to open it as a universal link"
+          },
+          {
+            "/": "/cs-u/*",
+            "exclude": true,
+            "comment": "Matches any URL whose path starts with /survey portal/ and instructs the system not to open it as a universal link"
+          },
+          {
+            "/": "/installer/*",
+            "exclude": true,
+            "comment": "Matches any URL whose path starts with /installer/ and instructs the system not to open it as a universal link"
+          },
+          {
+            "/": "/*"
+          }
+        ]
+      }
+    ]
+  }
+}
