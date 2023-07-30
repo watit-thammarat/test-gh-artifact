@@ -102,3 +102,4 @@ jobs:
         run: |
           pwd
           ls -la
+          cat ./env.txt
