@@ -46,31 +46,35 @@ jobs:
             build
 
   replace:
-    runs-on: ubuntu-latest
     needs: build
-    steps:
-      - name: Download a single artifact
-        uses: actions/download-artifact@v3
-        with:
-          name: build
+    uses: watit-thammarat/test-gh-artifact/.github/workflows/replace.yml@main
 
-      - name: report
-        shell: bash
-        run: |
-          pwd
-          ls -la
+  # replace:
+  #   runs-on: ubuntu-latest
+  #   needs: build
+  #   steps:
+  #     - name: Download a single artifact
+  #       uses: actions/download-artifact@v3
+  #       with:
+  #         name: build
 
-      - name: write-file
-        shell: bash
-        run: |
-          echo "${{ vars.GREETING }}" > env.txt
+  #     - name: report
+  #       shell: bash
+  #       run: |
+  #         pwd
+  #         ls -la
 
-      - name: Archive production artifacts
-        uses: actions/upload-artifact@v3
-        with:
-          name: replace
-          path: |
-            ./
+  #     - name: write-file
+  #       shell: bash
+  #       run: |
+  #         echo "${{ vars.GREETING }}" > env.txt
+
+  #     - name: Archive production artifacts
+  #       uses: actions/upload-artifact@v3
+  #       with:
+  #         name: replace
+  #         path: |
+  #           ./
 
   result:
     runs-on: ubuntu-latest
