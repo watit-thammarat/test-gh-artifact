@@ -57,7 +57,7 @@ jobs:
 
   replace:
     needs: build
-    uses: watit-thammarat/test-gh-artifact/.github/workflows/replace.yml@main
+    uses: ./.github/workflows/replace.yml
     # with:
     #   environment: ${{ github.event.inputs.environment }}
 
