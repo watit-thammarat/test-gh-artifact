@@ -1,0 +1,11 @@
+on:
+  workflow_call:
+
+jobs:
+  replace:
+    runs-on: ubuntu-latest
+    steps:
+      - name: echo message
+        shell: bash
+        run: |
+          echo "Hello world"

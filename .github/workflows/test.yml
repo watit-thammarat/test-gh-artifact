@@ -61,6 +61,10 @@ jobs:
     # with:
     #   environment: ${{ github.event.inputs.environment }}
 
+  echo-message:
+    needs: replace
+    uses: ./.github/workflows/echo-message.yml
+
   # replace:
   #   runs-on: ubuntu-latest
   #   needs: build
