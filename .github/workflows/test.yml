@@ -16,81 +16,55 @@ on:
 jobs:
   build:
     name: Create release bundle
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout source code
-        uses: actions/checkout@v3
+    uses: ./.github/workflows/create-release-bundle.yml
 
-      - name: Install Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
+    # name: Create release bundle
+    # runs-on: ubuntu-latest
+    # steps:
+    #   - name: Checkout source code
+    #     uses: actions/checkout@v3
 
-      - name: Cache node modules
-        id: cache-npm
-        uses: actions/cache@v3
-        env:
-          cache-name: cache-node-module
-        with:
-          path: ./node_modules
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}-
-            ${{ runner.os }}-build-
-            ${{ runner.os }}-
+    #   - name: Install Node.js
+    #     uses: actions/setup-node@v3
+    #     with:
+    #       node-version: 18
 
-      - name: Install node modules
-        if: ${{ steps.cache-npm.outputs.cache-hit != 'true' }}
-        shell: bash
-        run: npm ci
+    #   - name: Cache node modules
+    #     id: cache-npm
+    #     uses: actions/cache@v3
+    #     env:
+    #       cache-name: cache-node-module
+    #     with:
+    #       path: ./node_modules
+    #       key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+    #       restore-keys: |
+    #         ${{ runner.os }}-build-${{ env.cache-name }}-
+    #         ${{ runner.os }}-build-
+    #         ${{ runner.os }}-
 
-      - name: Build development bundle
-        shell: bash
-        run: npm run build
+    #   - name: Install node modules
+    #     if: ${{ steps.cache-npm.outputs.cache-hit != 'true' }}
+    #     shell: bash
+    #     run: npm ci
 
-      - name: Archive production artifacts
-        uses: actions/upload-artifact@v3
-        with:
-          name: build-${{ github.event.inputs.environment }}
-          path: |
-            build
+    #   - name: Build development bundle
+    #     shell: bash
+    #     run: npm run build
+
+    #   - name: Archive production artifacts
+    #     uses: actions/upload-artifact@v3
+    #     with:
+    #       name: build-${{ github.event.inputs.environment }}
+    #       path: |
+    #         build
 
   replace:
     needs: build
     uses: ./.github/workflows/replace.yml
-    # with:
-    #   environment: ${{ github.event.inputs.environment }}
 
   echo-message:
     needs: replace
     uses: ./.github/workflows/echo-message.yml
-
-  # replace:
-  #   runs-on: ubuntu-latest
-  #   needs: build
-  #   steps:
-  #     - name: Download a single artifact
-  #       uses: actions/download-artifact@v3
-  #       with:
-  #         name: build
-
-  #     - name: report
-  #       shell: bash
-  #       run: |
-  #         pwd
-  #         ls -la
-
-  #     - name: write-file
-  #       shell: bash
-  #       run: |
-  #         echo "${{ vars.GREETING }}" > env.txt
-
-  #     - name: Archive production artifacts
-  #       uses: actions/upload-artifact@v3
-  #       with:
-  #         name: replace
-  #         path: |
-  #           ./
 
   result:
     runs-on: ubuntu-latest
